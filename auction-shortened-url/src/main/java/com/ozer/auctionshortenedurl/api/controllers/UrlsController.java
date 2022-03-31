@@ -33,7 +33,6 @@ public class UrlsController {
 		if (urlToRet != null) {
 			UrlResponseDto urlResponseDto = new UrlResponseDto();
 			urlResponseDto.setOriginalUrl(urlToRet.getOriginalUrl());
-			urlResponseDto.setExpirationDate(urlToRet.getExpirationDate());
 			urlResponseDto.setShortUrl(urlToRet.getShortUrl());
 			return new ResponseEntity<UrlResponseDto>(urlResponseDto, HttpStatus.OK);
 		}

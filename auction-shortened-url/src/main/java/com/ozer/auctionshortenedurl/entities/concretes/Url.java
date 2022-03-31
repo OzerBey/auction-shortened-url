@@ -34,6 +34,4 @@ public class Url {
 	@Column(name = "creation_date")
 	private LocalDateTime creationDate;
 
-	@Column(name = "expiration_date")
-	private LocalDateTime expirationDate;
 }

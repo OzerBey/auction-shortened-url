@@ -28,8 +28,6 @@ public class UrlManager implements UrlService {
 			urlToPersist.setCreationDate(LocalDateTime.now());
 			urlToPersist.setOriginalUrl(urlDto.getUrl());
 			urlToPersist.setShortUrl(encodedUrl);
-			urlToPersist
-					.setExpirationDate(getExpirationDate(urlDto.getExpirationDate(), urlToPersist.getCreationDate()));
 			Url urlToRet = persistShortLink(urlToPersist);
 
 			if (urlToRet != null)
@@ -40,18 +38,11 @@ public class UrlManager implements UrlService {
 		return null;
 	}
 
-	private LocalDateTime getExpirationDate(String expirationDate, LocalDateTime creationDate) {
-		if (StringUtils.isBlank(expirationDate)) {
-			return creationDate;
-		}
-		LocalDateTime expirationDateToRet = LocalDateTime.parse(expirationDate);
-		return expirationDateToRet;
-	}
-
 	private String encodeUrl(String url) {
-		String encodedUrl = "";
+		String encodedUrl = "ozer.com";// my example of end-point
 		LocalDateTime time = LocalDateTime.now();
-		encodedUrl = Hashing.murmur3_32().hashString(url.concat(time.toString()), StandardCharsets.UTF_8).toString();
+		encodedUrl += "/"
+				+ Hashing.murmur3_32().hashString(url.concat(time.toString()), StandardCharsets.UTF_8).toString();
 		return encodedUrl;
 	}
 
