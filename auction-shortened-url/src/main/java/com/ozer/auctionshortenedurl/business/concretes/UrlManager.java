@@ -59,9 +59,9 @@ public class UrlManager implements UrlService {
 	}
 
 	@Override
-	public void deleteShortLink(Url url) {
-		urlDao.delete(url);
-
+	public void deleteShortLink(int url_id) {
+		this.urlDao.deleteById(url_id);
+		;
 	}
 
 }
