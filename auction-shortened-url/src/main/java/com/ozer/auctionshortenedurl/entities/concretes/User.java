@@ -21,13 +21,13 @@ import lombok.NoArgsConstructor;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id") // names must be same with in the Database
+	@Column(name = "user_id") // names must be same with in the Database
 	@NotNull
-	private int id;
+	private int userId;
 
 	@NotNull
-	@Column(name = "email")
-	private String email;
+	@Column(name = "username")
+	private String username;
 
 	@NotNull
 	@Column(name = "password")
